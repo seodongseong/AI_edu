@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churu - 고양이들의 모임장소</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 상단 헤더 -->
+    <header class="top-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🐾</span>
+                <span class="logo-text">Churu</span>
+            </a>
+            <div class="header-actions">
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-container instagram-style">
+        <!-- 피드 영역 -->
+        <section class="feed-section">
+            <!-- 피드 리스트 -->
+            <div class="feed-list" id="feedList">
+                <!-- 피드 아이템은 JavaScript로 동적 생성 -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 챗봇 플로팅 버튼 -->
+    <button class="chatbot-floating-btn" id="chatbotToggleBtn" title="고양이 상담">
+        <span class="chatbot-floating-icon">💬</span>
+    </button>
+
+    <!-- 챗봇 모달 -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>🐾 고양이 상담 챗봇</h3>
+                <button class="chatbot-close-btn" id="chatbotCloseBtn">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chatbot-message bot-message">
+                    <div class="message-avatar">🐾</div>
+                    <div class="message-content">
+                        안녕하세요! 고양이 키우기 전문 상담 챗봇입니다 😊<br><br>고양이의 건강, 먹이, 행동, 케어 등에 대해 무엇이든 물어보세요! 친절하게 답변해드리겠습니다 🐾
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbotInput" placeholder="메시지를 입력하세요..." class="chatbot-input">
+                <button id="chatbotSendBtn" class="chatbot-send-btn">전송</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 사진 업로드 모달 -->
+    <div class="upload-modal" id="uploadModal">
+        <div class="upload-modal-content">
+            <div class="upload-modal-header">
+                <h3>새 게시물 올리기</h3>
+                <button class="upload-modal-close" id="uploadModalClose">✕</button>
+            </div>
+            <div class="upload-modal-body">
+                <div class="upload-preview" id="uploadPreview">
+                    <label for="fileInput" class="upload-label">
+                        <span>📷</span>
+                        <span>사진 선택</span>
+                    </label>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="upload-form">
+                    <textarea id="postCaption" placeholder="고양이에 대해 이야기해주세요..." class="post-caption-input"></textarea>
+                    <button class="upload-submit-btn" id="uploadSubmitBtn">게시하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 네비게이션 바 -->
+    <nav class="bottom-navbar">
+        <div class="bottom-nav-container">
+            <a href="index.html" class="bottom-nav-item active" title="홈">
+                <span class="bottom-nav-icon">🏠</span>
+                <span class="bottom-nav-label">홈</span>
+            </a>
+            <a href="feed.html" class="bottom-nav-item" title="피드">
+                <span class="bottom-nav-icon">📸</span>
+                <span class="bottom-nav-label">피드</span>
+            </a>
+            <button class="bottom-nav-item upload-btn-bottom" id="uploadBtnBottom" title="게시물 만들기">
+                <span class="bottom-nav-icon">➕</span>
+                <span class="bottom-nav-label">게시</span>
+            </button>
+            <a href="profile.html" class="bottom-nav-item" title="프로필">
+                <div class="bottom-nav-avatar" id="bottomNavUserAvatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=user" alt="사용자">
+                </div>
+                <span class="bottom-nav-label">프로필</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
+
