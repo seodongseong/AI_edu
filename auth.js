@@ -196,6 +196,60 @@ if (loginForm) {
     });
 }
 
+// 프로필 이미지 초기 생성 함수
+function getInitials(name) {
+    if (!name) return 'U';
+    const names = name.trim().split(' ');
+    if (names.length >= 2) {
+        return (names[0][0] + names[1][0]).toUpperCase();
+    }
+    return name[0].toUpperCase();
+}
+
+// 프로필 사이드 메뉴 관리
+function initializeProfileMenu() {
+    const profileAvatar = document.getElementById('profileAvatar');
+    const profileSidebar = document.getElementById('profileSidebar');
+    const profileSidebarOverlay = document.getElementById('profileSidebarOverlay');
+    const logoutMenuItem = document.getElementById('logoutMenuItem');
+    
+    // 프로필 아바타 클릭 시 메뉴 열기
+    if (profileAvatar) {
+        profileAvatar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileSidebar.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    // 오버레이 클릭 시 메뉴 닫기
+    if (profileSidebarOverlay) {
+        profileSidebarOverlay.addEventListener('click', () => {
+            profileSidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // 로그아웃 메뉴 아이템 클릭
+    if (logoutMenuItem) {
+        logoutMenuItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            authManager.logout();
+            profileSidebar.classList.remove('active');
+            document.body.style.overflow = '';
+            window.location.reload();
+        });
+    }
+    
+    // ESC 키로 메뉴 닫기
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && profileSidebar && profileSidebar.classList.contains('active')) {
+            profileSidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
 // 페이지 로드 시 로그인 상태 확인 및 UI 업데이트
 document.addEventListener('DOMContentLoaded', () => {
     updateAuthUI();
@@ -208,28 +262,32 @@ function updateAuthUI() {
     
     authLinks.forEach(container => {
         if (currentUser) {
-            // 로그인된 경우
+            // 로그인된 경우 - 프로필 이미지만 표시
+            const initials = getInitials(currentUser.name);
             container.innerHTML = `
-                <span style="color: var(--text-secondary); margin-right: 1rem;">
-                    안녕하세요, <strong>${currentUser.name}</strong>님
-                </span>
-                <a href="#" class="nav-link" id="logoutBtn">로그아웃</a>
+                <div class="profile-avatar" id="profileAvatar" title="${currentUser.name}">
+                    <span>${initials}</span>
+                </div>
             `;
             
-            // 로그아웃 버튼 이벤트
-            const logoutBtn = document.getElementById('logoutBtn');
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    authManager.logout();
-                    window.location.reload();
-                });
-            }
+            // 프로필 사이드 메뉴 정보 업데이트
+            const profileSidebarName = document.getElementById('profileSidebarName');
+            const profileSidebarEmail = document.getElementById('profileSidebarEmail');
+            const profileSidebarInitial = document.getElementById('profileSidebarInitial');
+            
+            if (profileSidebarName) profileSidebarName.textContent = currentUser.name;
+            if (profileSidebarEmail) profileSidebarEmail.textContent = currentUser.email;
+            if (profileSidebarInitial) profileSidebarInitial.textContent = initials;
+            
+            // 프로필 메뉴 초기화
+            setTimeout(() => {
+                initializeProfileMenu();
+            }, 100);
         } else {
             // 로그인되지 않은 경우
             container.innerHTML = `
                 <a href="login.html" class="nav-link">로그인</a>
-                <a href="register.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">회원가입</a>
+                <a href="register.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem; margin-left: 0.5rem;">회원가입</a>
             `;
         }
     });
