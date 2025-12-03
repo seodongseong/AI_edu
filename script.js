@@ -99,6 +99,24 @@ const initializeContactForm = () => {
     }
 };
 
+// Hero 슬라이드쇼 기능
+const initializeHeroSlideshow = () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlideIndex = 0;
+    const slideshowInterval = 5000; // 5초마다 전환
+    
+    const transitionToNextSlide = () => {
+        slides[currentSlideIndex].classList.remove('active');
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        slides[currentSlideIndex].classList.add('active');
+    };
+    
+    // 슬라이드가 존재하는 경우에만 자동 전환 시작
+    if (slides.length > 1) {
+        setInterval(transitionToNextSlide, slideshowInterval);
+    }
+};
+
 // 페이지 로드 시 초기화
 const initializePage = () => {
     window.addEventListener('scroll', handleNavbarScroll);
@@ -106,6 +124,7 @@ const initializePage = () => {
     initializeSmoothScroll();
     initializeScrollAnimation();
     initializeContactForm();
+    initializeHeroSlideshow();
     
     // 초기 스크롤 위치 확인
     handleNavbarScroll();

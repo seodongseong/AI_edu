@@ -39,3 +39,4 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "✗ 커밋 실패" -ForegroundColor Red
 }
 
+
