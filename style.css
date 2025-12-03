@@ -834,27 +834,72 @@ section {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4), 0 8px 24px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: visible;
 }
 
 .chatbot-toggle-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5), 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-toggle-btn:active {
+    transform: scale(1.05) translateY(0);
 }
 
 .chatbot-icon {
-    font-size: 1.5rem;
+    width: 28px;
+    height: 28px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-toggle-btn:hover .chatbot-icon {
+    transform: scale(1.1);
+}
+
+.chatbot-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ef4444;
+    border: 3px solid white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.chatbot-badge.show {
+    display: flex;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
 }
 
 .chatbot-modal {
@@ -1110,8 +1155,13 @@ section {
     .chatbot-toggle-btn {
         bottom: 1.5rem;
         right: 1.5rem;
-        width: 56px;
-        height: 56px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .chatbot-icon {
+        width: 24px;
+        height: 24px;
     }
 
     .chatbot-window {
