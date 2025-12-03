@@ -4,7 +4,7 @@ class ChatbotManager {
         this.isOpen = false;
         this.messageHistory = [];
         this.apiKey = '';
-        this.apiKeyStorageKey = 'ds_studio_gemini_api_key';
+        this.apiKeyStorageKey = 'ds_studio_openai_api_key';
         this.init();
     }
 
@@ -227,8 +227,8 @@ class ChatbotManager {
         const loadingId = this.addMessage('bot', '답변을 생성하는 중...', true);
 
         try {
-            // Google Gemini API 호출
-            const botResponse = await this.callGeminiAPI(userMessage);
+            // OpenAI API 호출
+            const botResponse = await this.callOpenAIAPI(userMessage);
             
             // 로딩 메시지 제거
             this.removeMessage(loadingId);
@@ -261,13 +261,13 @@ class ChatbotManager {
         }
     }
 
-    async callGeminiAPI(userMessage) {
+    async callOpenAIAPI(userMessage) {
         // 대화 히스토리 구성 (최근 10개 메시지)
         const conversationHistory = this.messageHistory
             .slice(-10)
             .map(msg => ({
-                role: msg.type === 'user' ? 'user' : 'model',
-                parts: [{ text: msg.content }]
+                role: msg.type === 'user' ? 'user' : 'assistant',
+                content: msg.content
             }));
 
         // 시스템 프롬프트
@@ -276,40 +276,28 @@ class ChatbotManager {
 사용자에게 친절하고 전문적으로 답변해주세요. 답변은 한국어로 작성하고, 이모지를 적절히 사용하여 친근하게 대화합니다.`;
 
         // API 요청 URL
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${this.apiKey}`;
+        const apiUrl = 'https://api.openai.com/v1/chat/completions';
         
+        // 메시지 배열 구성
+        const messages = [
+            { role: 'system', content: systemPrompt },
+            ...conversationHistory,
+            { role: 'user', content: userMessage }
+        ];
+
         // 요청 본문 구성
         const requestBody = {
-            contents: [],
-            generationConfig: {
-                temperature: 0.7,
-                topK: 40,
-                topP: 0.95,
-                maxOutputTokens: 1024,
-            }
+            model: 'gpt-3.5-turbo',
+            messages: messages,
+            temperature: 0.7,
+            max_tokens: 1000
         };
-
-        // 첫 메시지인 경우 시스템 프롬프트 포함
-        if (conversationHistory.length === 0) {
-            requestBody.contents.push({
-                role: 'user',
-                parts: [{ text: `${systemPrompt}\n\n사용자: ${userMessage}` }]
-            });
-        } else {
-            // 대화 히스토리와 함께 전송
-            requestBody.contents = [
-                ...conversationHistory,
-                {
-                    role: 'user',
-                    parts: [{ text: userMessage }]
-                }
-            ];
-        }
 
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.apiKey}`
             },
             body: JSON.stringify(requestBody)
         });
@@ -319,7 +307,7 @@ class ChatbotManager {
             const errorMessage = errorData.error?.message || `API 요청 실패: ${response.status}`;
             
             // API 키 관련 오류 처리
-            if (response.status === 400 || response.status === 401 || response.status === 403) {
+            if (response.status === 401 || response.status === 403) {
                 throw new Error(`API_KEY_ERROR: ${errorMessage}`);
             }
             
@@ -328,11 +316,11 @@ class ChatbotManager {
 
         const data = await response.json();
         
-        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+        if (!data.choices || !data.choices[0] || !data.choices[0].message) {
             throw new Error('API 응답 형식이 올바르지 않습니다.');
         }
 
-        return data.candidates[0].content.parts[0].text;
+        return data.choices[0].message.content.trim();
     }
 
     addMessage(type, content, isLoading = false) {
