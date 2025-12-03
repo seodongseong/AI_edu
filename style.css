@@ -88,6 +88,135 @@ body {
     gap: 0.5rem;
 }
 
+/* 프로필 아바타 */
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 프로필 사이드 메뉴 */
+.profile-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-sidebar.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.profile-sidebar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.profile-sidebar-content {
+    position: absolute;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.profile-sidebar.active .profile-sidebar-content {
+    left: 0;
+}
+
+.profile-sidebar-header {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    text-align: center;
+}
+
+.profile-sidebar-avatar-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-sidebar-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.profile-sidebar-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.profile-sidebar-menu {
+    flex: 1;
+    padding: 1rem 0;
+}
+
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.profile-menu-item:hover {
+    background: var(--bg-secondary);
+    border-left-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.profile-menu-item .menu-icon {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -694,6 +823,10 @@ section {
     .nav-menu .auth-links .btn {
         width: 100%;
         text-align: center;
+    }
+
+    .profile-sidebar-content {
+        width: 280px;
     }
 
     .nav-toggle {
