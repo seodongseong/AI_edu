@@ -82,6 +82,12 @@ body {
     align-items: center;
 }
 
+.nav-menu .auth-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -677,6 +683,17 @@ section {
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-menu .auth-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .nav-menu .auth-links .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .nav-toggle {
