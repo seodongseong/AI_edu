@@ -368,8 +368,43 @@
         </div>
     </footer>
 
+    <!-- 챗봇 플로팅 버튼 -->
+    <button class="chatbot-toggle-btn" id="chatbotToggleBtn" aria-label="챗봇 열기">
+        <span class="chatbot-icon">💬</span>
+    </button>
+
+    <!-- 챗봇 모달 -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-header-content">
+                    <span class="chatbot-header-icon">🤖</span>
+                    <h3>DS Studio 챗봇</h3>
+                </div>
+                <button class="chatbot-close-btn" id="chatbotCloseBtn" aria-label="챗봇 닫기">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chatbot-message bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        안녕하세요! DS Studio 챗봇입니다. 😊<br><br>
+                        모듈형 디지털 서비스 플랫폼에 대해 무엇이든 물어보세요. 
+                        서비스 소개, 기술 문의, 회사 정보 등에 대해 친절하게 답변해드리겠습니다!
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbotInput" placeholder="메시지를 입력하세요..." class="chatbot-input" autocomplete="off">
+                <button id="chatbotSendBtn" class="chatbot-send-btn" aria-label="전송">
+                    <span>전송</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="auth.js"></script>
     <script src="script.js"></script>
+    <script src="chatbot.js"></script>
     <script>
         // 페이지 로드 시 인증 상태 확인
         document.addEventListener('DOMContentLoaded', () => {
