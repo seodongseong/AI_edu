@@ -831,9 +831,9 @@ section {
 
 /* 챗봇 스타일 */
 .chatbot-toggle-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    position: fixed !important;
+    bottom: 2rem !important;
+    right: 2rem !important;
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -841,8 +841,8 @@ section {
     border: none;
     box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4), 0 8px 24px rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    z-index: 1000;
-    display: flex;
+    z-index: 9999 !important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
