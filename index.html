@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Studio - 모듈형 디지털 서비스 플랫폼</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">DS Studio</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">홈</a></li>
+                <li><a href="#about" class="nav-link">회사소개</a></li>
+                <li><a href="#services" class="nav-link">서비스</a></li>
+                <li><a href="#features" class="nav-link">특징</a></li>
+                <li><a href="#contact" class="nav-link">연락처</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="메뉴 토글">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero 섹션 -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    모듈형 디지털 서비스<br>
+                    <span class="gradient-text">플랫폼을 만듭니다</span>
+                </h1>
+                <p class="hero-description">
+                    다양한 웹 서비스를 유연하게 실험하고 개발할 수 있는<br>
+                    기술 중심의 혁신적인 테크 컴퍼니
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">서비스 알아보기</a>
+                    <a href="#contact" class="btn btn-secondary">문의하기</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">🔧</div>
+                    <div class="card-text">모듈형 개발</div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">빠른 프로토타이핑</div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🚀</div>
+                    <div class="card-text">확장 가능한 아키텍처</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 회사 소개 섹션 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">DS Studio 소개</h2>
+                <p class="section-subtitle">기술 중심의 혁신적인 접근</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>모듈형 디지털 서비스 플랫폼 개발</h3>
+                    <p>
+                        DS Studio는 다양한 웹 서비스를 유연하게 실험하고 개발할 수 있는 
+                        모듈형 플랫폼을 제공합니다. 각 서비스는 독립적인 모듈로 설계되어 
+                        빠르게 조합하고 확장할 수 있습니다.
+                    </p>
+                    <p>
+                        우리는 기술 중심의 접근 방식을 통해 고객의 아이디어를 빠르게 
+                        프로토타입으로 구현하고, 실제 서비스로 발전시킬 수 있는 
+                        인프라를 제공합니다.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">모듈 라이브러리</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">프로젝트 완료</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">기술 지원</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="code-visualization">
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line highlight"></div>
+                        <div class="code-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 섹션 -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">주요 서비스</h2>
+                <p class="section-subtitle">유연하고 확장 가능한 솔루션</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧩</div>
+                    <h3 class="service-title">모듈형 개발</h3>
+                    <p class="service-description">
+                        재사용 가능한 모듈을 조합하여 빠르고 효율적으로 
+                        새로운 서비스를 개발합니다.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">빠른 프로토타이핑</h3>
+                    <p class="service-description">
+                        아이디어를 빠르게 검증할 수 있는 프로토타입을 
+                        단기간에 제작합니다.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3 class="service-title">API 통합</h3>
+                    <p class="service-description">
+                        다양한 외부 서비스와의 API 통합을 통해 
+                        확장성 있는 시스템을 구축합니다.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">데이터 분석</h3>
+                    <p class="service-description">
+                        실시간 데이터 분석과 시각화를 통해 
+                        비즈니스 인사이트를 제공합니다.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3 class="service-title">보안 솔루션</h3>
+                    <p class="service-description">
+                        엔터프라이즈급 보안을 적용하여 
+                        안전한 디지털 서비스를 제공합니다.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">클라우드 인프라</h3>
+                    <p class="service-description">
+                        확장 가능한 클라우드 인프라를 구축하여 
+                        안정적인 서비스를 운영합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 특징 섹션 -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">핵심 특징</h2>
+                <p class="section-subtitle">왜 DS Studio를 선택해야 할까요?</p>
+            </div>
+            <div class="features-content">
+                <div class="feature-item">
+                    <div class="feature-number">01</div>
+                    <div class="feature-details">
+                        <h3>유연한 아키텍처</h3>
+                        <p>
+                            모듈형 설계로 각 컴포넌트를 독립적으로 개발하고 
+                            배포할 수 있어 유지보수가 쉽고 확장이 용이합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">02</div>
+                    <div class="feature-details">
+                        <h3>빠른 개발 속도</h3>
+                        <p>
+                            검증된 모듈 라이브러리를 활용하여 개발 시간을 
+                            단축하고 품질을 보장합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">03</div>
+                    <div class="feature-details">
+                        <h3>기술 중심 접근</h3>
+                        <p>
+                            최신 기술 스택과 베스트 프랙티스를 적용하여 
+                            미래 지향적인 솔루션을 제공합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">04</div>
+                    <div class="feature-details">
+                        <h3>실험과 혁신</h3>
+                        <p>
+                            새로운 아이디어를 빠르게 실험하고 검증할 수 있는 
+                            환경을 제공하여 혁신을 촉진합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 섹션 -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">함께 혁신을 만들어가요</h2>
+                <p class="cta-description">
+                    모듈형 플랫폼으로 빠르고 유연한 디지털 서비스를 시작하세요
+                </p>
+                <a href="#contact" class="btn btn-primary btn-large">프로젝트 시작하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">연락하기</h2>
+                <p class="section-subtitle">프로젝트 문의 및 협업 제안을 환영합니다</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>이메일</h3>
+                            <p>contact@dsstudio.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <h3>문의</h3>
+                            <p>프로젝트 문의 및 협업 제안</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⚡</div>
+                        <div class="contact-details">
+                            <h3>빠른 응답</h3>
+                            <p>24시간 이내 답변 보장</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">메시지</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">메시지 보내기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">DS Studio</span>
+                    </div>
+                    <p class="footer-description">
+                        모듈형 디지털 서비스 플랫폼을 개발하는 테크 컴퍼니
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>회사</h4>
+                        <ul>
+                            <li><a href="#about">회사소개</a></li>
+                            <li><a href="#services">서비스</a></li>
+                            <li><a href="#features">특징</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>리소스</h4>
+                        <ul>
+                            <li><a href="#">문서</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">블로그</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>연락처</h4>
+                        <ul>
+                            <li><a href="#contact">문의하기</a></li>
+                            <li><a href="#">지원</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DS Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
