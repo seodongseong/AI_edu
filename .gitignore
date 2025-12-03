@@ -5,6 +5,7 @@
 config.js
 api-keys.js
 secrets.js
+setup-api-key.js
 
 # 로컬 설정 파일
 local-config.js
