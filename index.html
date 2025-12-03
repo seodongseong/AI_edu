@@ -383,13 +383,26 @@
                 </div>
                 <button class="chatbot-close-btn" id="chatbotCloseBtn" aria-label="챗봇 닫기">✕</button>
             </div>
+            <div class="chatbot-api-key-section">
+                <div class="api-key-input-group">
+                    <input type="text" id="chatbotApiKeyInput" placeholder="Google Gemini API 키를 입력하세요" class="api-key-input" autocomplete="off">
+                    <button id="chatbotApiKeySaveBtn" class="api-key-save-btn">저장</button>
+                </div>
+                <div id="chatbotApiKeyStatus" class="api-key-status inactive">⚠ API 키를 입력해주세요</div>
+                <div class="api-key-help">
+                    <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer">API 키 발급받기 →</a>
+                </div>
+            </div>
             <div class="chatbot-messages" id="chatbotMessages">
                 <div class="chatbot-message bot-message">
                     <div class="message-avatar">🤖</div>
-                    <div class="message-content">
-                        안녕하세요! DS Studio 챗봇입니다. 😊<br><br>
-                        모듈형 디지털 서비스 플랫폼에 대해 무엇이든 물어보세요. 
-                        서비스 소개, 기술 문의, 회사 정보 등에 대해 친절하게 답변해드리겠습니다!
+                    <div class="message-wrapper">
+                        <div class="message-content">
+                            안녕하세요! DS Studio 챗봇입니다. 😊<br><br>
+                            모듈형 디지털 서비스 플랫폼에 대해 무엇이든 물어보세요. 
+                            서비스 소개, 기술 문의, 회사 정보 등에 대해 친절하게 답변해드리겠습니다!
+                        </div>
+                        <div class="message-time"></div>
                     </div>
                 </div>
             </div>
@@ -398,6 +411,9 @@
                 <button id="chatbotSendBtn" class="chatbot-send-btn" aria-label="전송">
                     <span>전송</span>
                 </button>
+            </div>
+            <div class="chatbot-footer">
+                <button class="chatbot-clear-btn" id="chatbotClearBtn" aria-label="대화 기록 삭제">🗑️ 기록 삭제</button>
             </div>
         </div>
     </div>

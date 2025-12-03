@@ -1126,6 +1126,162 @@ section {
     }
 }
 
+/* API 키 섹션 */
+.chatbot-api-key-section {
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.api-key-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.api-key-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.api-key-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.api-key-save-btn {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.api-key-save-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.api-key-status {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.api-key-status.active {
+    color: #10b981;
+}
+
+.api-key-status.inactive {
+    color: #f59e0b;
+}
+
+.api-key-help {
+    font-size: 0.75rem;
+}
+
+.api-key-help a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.api-key-help a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* 메시지 래퍼 */
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.message-time {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    padding-left: 0.25rem;
+}
+
+.user-message .message-time {
+    text-align: right;
+    padding-right: 0.25rem;
+    padding-left: 0;
+}
+
+/* 챗봇 푸터 */
+.chatbot-footer {
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+}
+
+.chatbot-clear-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chatbot-clear-btn:hover {
+    background: white;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* 알림 */
+.chatbot-notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 3000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    max-width: 300px;
+    font-size: 0.9rem;
+}
+
+.chatbot-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chatbot-notification.success {
+    border-left: 4px solid #10b981;
+}
+
+.chatbot-notification.error {
+    border-left: 4px solid #ef4444;
+}
+
+.chatbot-notification.info {
+    border-left: 4px solid var(--primary-color);
+}
+
     .nav-toggle {
         display: flex;
     }
